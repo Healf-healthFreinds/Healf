@@ -11,14 +11,10 @@ import SnapKit
 import Then
 
 final class RegisterEmailViewController: NaviHelper {
-  let uihelper = UIHelper.shared
-  
-  private lazy var titleLabel = UILabel().then {
-    $0.text = "사용하실 아이디를 입력해주세요."
-    $0.font = .boldSystemFont(ofSize: 20)
-  }
-  private lazy var emailTextField = uihelper.createLoginTextField("아이디를 입력해주세요.")
-  private lazy var nextButton = uihelper.createHealfButton("다음", .unableGray, .white)
+
+  private lazy var titleLabel = UIHelper.shared.createSingleLineLabel("사용하실 아이디를 입력해주세요.")
+  private lazy var emailTextField = UIHelper.shared.createLoginTextField("아이디를 입력해주세요.")
+  private lazy var nextButton = UIHelper.shared.createHealfButton("다음", .unableGray, .white)
   
   // MARK: - viewDidLoad
   override func viewDidLoad() {
@@ -32,6 +28,9 @@ final class RegisterEmailViewController: NaviHelper {
     makeUI()
   }
   
+  override func leftButtonTapped(_ sender: UIBarButtonItem) {
+    dismiss(animated: true)
+  }
   // MARK: - setupLayout
   func setupLayout(){
     [

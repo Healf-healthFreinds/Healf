@@ -23,7 +23,7 @@ extension UIButton {
     }
   }
   
-  func setUnderline() {
+  func setUnderline(_ titleColr: UIColor) {
     guard let title = title(for: .normal) else { return }
     
     // 기존 제목을 숨기고, 새로운 밑줄 뷰를 추가합니다
@@ -36,6 +36,7 @@ extension UIButton {
     
     let titleLabel = UILabel()
     titleLabel.text = title
+    titleLabel.textColor = titleColr
     
     addSubview(titleLabel)
     titleLabel.snp.makeConstraints {

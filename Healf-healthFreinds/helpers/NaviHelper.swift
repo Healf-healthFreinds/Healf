@@ -30,10 +30,27 @@ class NaviHelper: UIViewController {
     self.navigationController?.navigationBar.isTranslucent = false
     
     self.navigationItem.leftBarButtonItem = leftButton
-//    self.navigationItem.rightBarButtonItem = rightButton
   }
   
-  @objc func leftButtonTapped(){
-    dismiss(animated: true)
+  // MARK: - 네비게이션 바 제목설정
+  func settingNavigationTitle(title: String){
+    self.navigationItem.title = title
+    self.navigationController?.navigationBar.titleTextAttributes = [
+        NSAttributedString.Key.foregroundColor: UIColor.black,
+        NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)
+    ]
+  }
+  
+  @objc func leftButtonTapped(_ sender: UIBarButtonItem) {
+    self.navigationController?.popViewController(animated: true)
+  }
+  
+  func redesignNavigation(_ imageName: String){
+    let logoImg = UIImage(named: imageName)?.withRenderingMode(.alwaysOriginal)
+    let logo = UIBarButtonItem(image: logoImg, style: .done, target: nil, action: nil)
+    logo.imageInsets = UIEdgeInsets(top: 5, left: 5, bottom: 0, right: 0)
+    logo.isEnabled = false
+    
+    navigationItem.leftBarButtonItem = logo
   }
 }

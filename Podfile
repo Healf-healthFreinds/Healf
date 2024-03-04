@@ -6,6 +6,8 @@ target 'Healf-healthFreinds' do
   use_frameworks!
 
   # Pods for Healf-healthFreinds
-pod 'SnapKit', '~> 5,6,0'
-
+pod 'NMapsMap'
+pod 'SnapKit', '~> 5.6.0'
+pod 'Then'
+pod 'Cosmos', '~> 23.0'
 end

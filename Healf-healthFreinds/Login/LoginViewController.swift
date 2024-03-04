@@ -11,26 +11,23 @@ import SnapKit
 import Then
 
 final class LoginViewController: UIViewController {
-  let uihelper = UIHelper.shared
+
+  private lazy var titleLabel = UIHelper.shared.createMultipleLineLabel("나만을 위한 헬스 친구 찾기,\nHeal F 🏋🏻",
+                                                                        .black,
+                                                                        .boldSystemFont(ofSize: 16),
+                                                                        .left)
   
-  private lazy var titleLabel = UILabel().then {
-    $0.text = "나만을 위한 헬스 친구 찾기,\nHeal F 🏋🏻"
-    $0.font = .boldSystemFont(ofSize: 16)
-    $0.numberOfLines = 0
-    $0.setLineSpacing(spacing: 10)
-  }
-  
-  private lazy var emailTextField = uihelper.createLoginTextField("아이디 또는 이메일")
-  private lazy var passwordTextField = uihelper.createLoginTextField("비밀번호")
-  
-  private lazy var loginButton = uihelper.createHealfButton("로그인", .mainBlue, .white)
-  private lazy var kakaoLoginButton = uihelper.createHealfButton("카카오 로그인", .kakaoYellow, .black)
-  private lazy var naverLoginButton = uihelper.createHealfButton("네이버 로그인", .naverGreen, .white)
+  private lazy var emailTextField = UIHelper.shared.createLoginTextField("아이디 또는 이메일")
+  private lazy var passwordTextField = UIHelper.shared.createLoginTextField("비밀번호")
+
+  private lazy var loginButton = UIHelper.shared.createHealfButton("로그인", .mainBlue, .white)
+  private lazy var kakaoLoginButton = UIHelper.shared.createHealfButton("카카오 로그인", .kakaoYellow, .black)
+  private lazy var naverLoginButton = UIHelper.shared.createHealfButton("네이버 로그인", .naverGreen, .white)
   
   private lazy var signupButton = UIButton().then {
     $0.setTitle("이메일로 회원가입", for: .normal)
     $0.setTitleColor(.black, for: .normal)
-    $0.setUnderline()
+    $0.setUnderline(.gray)
     $0.addAction(UIAction { _ in
       self.signupButtonTapped()
     }, for: .touchUpInside)
@@ -79,6 +76,7 @@ final class LoginViewController: UIViewController {
       $0.leading.trailing.equalTo(emailTextField)
     }
     
+    loginButton.addAction(UIAction { _ in self.loginButtonTapped() }, for: .touchUpInside)
     loginButton.snp.makeConstraints {
       $0.top.equalTo(passwordTextField.snp.bottom).offset(40)
       $0.leading.trailing.equalTo(emailTextField)
@@ -102,10 +100,18 @@ final class LoginViewController: UIViewController {
       $0.centerX.equalTo(naverLoginButton)
     }
   }
+
+  
+  func loginButtonTapped(){
+    let tapbarcontroller = TabBarController()
+
+    tapbarcontroller.modalPresentationStyle = .fullScreen
+    
+    self.present(tapbarcontroller, animated: true, completion: nil)
+  }
   
   // MARK: - signupButtonTapped
   func signupButtonTapped(){
-    print("1")
     let registerEmailVC = RegisterEmailViewController()
     let navigationVC = UINavigationController(rootViewController: registerEmailVC)
     navigationVC.modalPresentationStyle = .fullScreen
