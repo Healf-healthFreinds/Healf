@@ -183,7 +183,9 @@ final class HomeViewController: NaviHelper {
       $0.height.equalTo(170)
     }
 
-    startButton.addAction(UIAction { _ in self.startButtonTapped()}, for: .touchUpInside)
+    startButton.addAction(UIAction { _ in
+      self.startButtonTapped()
+    }, for: .touchUpInside)
     startButton.snp.makeConstraints {
       $0.top.equalTo(newPostContentStackView.snp.bottom).offset(10)
       $0.leading.trailing.equalTo(weeklySummaryStackView)

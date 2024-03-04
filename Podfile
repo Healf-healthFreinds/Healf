@@ -10,4 +10,5 @@ pod 'NMapsMap'
 pod 'SnapKit', '~> 5.6.0'
 pod 'Then'
 pod 'Cosmos', '~> 23.0'
+pod 'FirebaseAuth'
 end

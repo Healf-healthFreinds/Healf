@@ -13,8 +13,9 @@ import Then
 final class CompleSignupViewController: NaviHelper {
   
   private lazy var mainImageView = UIImageView().then { $0.image = UIImage(named: "MainTitleImg") }
-  private lazy var mainTitleLabel = UIHelper.shared.createOneLineLabel(
+  private lazy var mainTitleLabel = UIHelper.shared.createSingleLineLabel(
     "가입을 완료했어요!\n로그인하여 운동친구를 찾아보세요.",
+    .black,
     .boldSystemFont(ofSize: 17))
   private lazy var startButton = UIHelper.shared.createHealfButton("시작하기", .unableGray, .white)
 
@@ -55,9 +56,20 @@ final class CompleSignupViewController: NaviHelper {
       $0.centerX.equalToSuperview()
     }
     
+    startButton.addAction(UIAction { _ in
+      self.startButtonTapped()
+    } , for: .touchUpInside)
     startButton.snp.makeConstraints {
       $0.top.equalTo(mainTitleLabel.snp.bottom).offset(50)
       $0.centerX.equalToSuperview()
     }
   }
+  
+  func startButtonTapped(){
+    let loginVC = LoginViewController()
+    
+    let loginVCWithNavi = UINavigationController(rootViewController: loginVC)
+    loginVCWithNavi.modalPresentationStyle = .fullScreen
+    
+    present(loginVCWithNavi, animated: true, completion: nil)  }
 }

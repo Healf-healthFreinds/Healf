@@ -10,16 +10,19 @@ import UIKit
 import SnapKit
 import Then
 
-final class LoginViewController: UIViewController {
+import FirebaseAuth
 
-  private lazy var titleLabel = UIHelper.shared.createMultipleLineLabel("나만을 위한 헬스 친구 찾기,\nHeal F 🏋🏻",
-                                                                        .black,
-                                                                        .boldSystemFont(ofSize: 16),
-                                                                        .left)
+final class LoginViewController: UIViewController {
+  
+  private lazy var titleLabel = UIHelper.shared.createMultipleLineLabel(
+    "나만을 위한 헬스 친구 찾기,\nHeal F 🏋🏻",
+    .black,
+    .boldSystemFont(ofSize: 16),
+    .left)
   
   private lazy var emailTextField = UIHelper.shared.createLoginTextField("아이디 또는 이메일")
   private lazy var passwordTextField = UIHelper.shared.createLoginTextField("비밀번호")
-
+  
   private lazy var loginButton = UIHelper.shared.createHealfButton("로그인", .mainBlue, .white)
   private lazy var kakaoLoginButton = UIHelper.shared.createHealfButton("카카오 로그인", .kakaoYellow, .black)
   private lazy var naverLoginButton = UIHelper.shared.createHealfButton("네이버 로그인", .naverGreen, .white)
@@ -100,14 +103,25 @@ final class LoginViewController: UIViewController {
       $0.centerX.equalTo(naverLoginButton)
     }
   }
-
+  
   
   func loginButtonTapped(){
-    let tapbarcontroller = TabBarController()
-
-    tapbarcontroller.modalPresentationStyle = .fullScreen
+    guard let email = emailTextField.text?.description,
+          let password = passwordTextField.text?.description else { return }
     
-    self.present(tapbarcontroller, animated: true, completion: nil)
+    Auth.auth().signIn(withEmail: email,
+                       password: password) { authResult, error in
+      if authResult != nil {
+        let tapbarcontroller = TabBarController()
+        
+        tapbarcontroller.modalPresentationStyle = .fullScreen
+        
+        self.present(tapbarcontroller, animated: true, completion: nil)
+      } else {
+        print("로그인 실패")
+        print(error.debugDescription)
+      }
+    }
   }
   
   // MARK: - signupButtonTapped

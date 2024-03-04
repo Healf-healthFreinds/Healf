@@ -34,6 +34,8 @@
 		EECC03242B934A34003ECF95 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECC03232B934A34003ECF95 /* ChatViewController.swift */; };
 		EECC03262B934C3E003ECF95 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECC03252B934C3E003ECF95 /* ChatCell.swift */; };
 		EECC03292B934F39003ECF95 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECC03282B934F38003ECF95 /* MypageViewController.swift */; };
+		EECC032B2B95EA9D003ECF95 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EECC032A2B95EA9D003ECF95 /* GoogleService-Info.plist */; };
+		EECC032D2B95F286003ECF95 /* CompleteSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECC032C2B95F286003ECF95 /* CompleteSignupViewController.swift */; };
 		EEDD81022B70CE490022302E /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = EEDD81012B70CE490022302E /* Then */; };
 		EEDD81052B70CE860022302E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EEDD81042B70CE860022302E /* SnapKit */; };
 		EEDD81072B70D0D40022302E /* TextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDD81062B70D0D40022302E /* TextField+.swift */; };
@@ -73,6 +75,8 @@
 		EECC03232B934A34003ECF95 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		EECC03252B934C3E003ECF95 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		EECC03282B934F38003ECF95 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
+		EECC032A2B95EA9D003ECF95 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EECC032C2B95F286003ECF95 /* CompleteSignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteSignupViewController.swift; sourceTree = "<group>"; };
 		EEDD81062B70D0D40022302E /* TextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+.swift"; sourceTree = "<group>"; };
 		EEDD81082B70E55B0022302E /* NaviHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviHelper.swift; sourceTree = "<group>"; };
 		EEDD810B2B70E6B80022302E /* registerEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerEmailViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +166,7 @@
 				EE98B1DA2B4FDFC60025C4F8 /* Assets.xcassets */,
 				EE98B1DC2B4FDFC60025C4F8 /* LaunchScreen.storyboard */,
 				EE98B1DF2B4FDFC60025C4F8 /* Info.plist */,
+				EECC032A2B95EA9D003ECF95 /* GoogleService-Info.plist */,
 				EE98B1D72B4FDFC30025C4F8 /* Healf_healthFreinds.xcdatamodeld */,
 			);
 			path = "Healf-healthFreinds";
@@ -256,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				EEDD810B2B70E6B80022302E /* registerEmailViewController.swift */,
+				EECC032C2B95F286003ECF95 /* CompleteSignupViewController.swift */,
 			);
 			path = Signup;
 			sourceTree = "<group>";
@@ -330,6 +336,7 @@
 			files = (
 				EE98B1DE2B4FDFC60025C4F8 /* LaunchScreen.storyboard in Resources */,
 				EE98B1DB2B4FDFC60025C4F8 /* Assets.xcassets in Resources */,
+				EECC032B2B95EA9D003ECF95 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +392,7 @@
 				EEDD810C2B70E6B80022302E /* registerEmailViewController.swift in Sources */,
 				EECC03162B92C23F003ECF95 /* PopupViewController.swift in Sources */,
 				EE98B1D92B4FDFC30025C4F8 /* Healf_healthFreinds.xcdatamodeld in Sources */,
+				EECC032D2B95F286003ECF95 /* CompleteSignupViewController.swift in Sources */,
 				EECC03212B933A52003ECF95 /* PostedViewController.swift in Sources */,
 				EEA8ACB72B8CDB5000FD2A72 /* UILabel+.swift in Sources */,
 				EEDD81072B70D0D40022302E /* TextField+.swift in Sources */,

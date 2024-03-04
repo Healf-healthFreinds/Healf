@@ -7,8 +7,6 @@
 
 import UIKit
 
-import Then
-
 final class UIHelper {
   static let shared = UIHelper()
   
